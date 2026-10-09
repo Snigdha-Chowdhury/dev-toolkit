@@ -2,42 +2,10 @@
 
 A small collection of reusable development workflows and project-scoped skills for AI coding assistants.
 
-## Git Smart Commit
+## Skills
 
-The Git Smart Commit skill helps an AI assistant create a conventional Git commit safely. It is located at [skills/git-smart-commit/SKILL.md](skills/git-smart-commit/SKILL.md).
-
-### How an AI agent can use it
-
-An AI assistant should read the skill file, identify its workflow and trigger phrases, and follow the instructions in the repository context. The assistant may be invoked through a supported project-skill interface, a slash command, or a user request containing one of these phrases:
-
-- "Write a commit message"
-- "Generate a commit"
-- "Commit my changes"
-- "run/git-smart-commit"
-- "run/git-commit"
-
-The skill requires a Git repository, a current branch, and either staged or unstaged changes. It must:
-
-1. Run git branch and confirm that the working branch is correct.
-2. Run git status, git diff, and git diff --cached.
-3. Stop and ask the user to make changes when no changes are available.
-4. Ask before staging unstaged files, using git add . for all files or git add <filename> for selected files.
-5. Generate a conventional commit message using feat, fix, refactor, docs, test, or chore.
-6. Run git commit -m with the generated message.
-7. Never add a Co-Authored-By trailer.
-
-### Example commit message
-
-```text
-type(scope): add user profile validation
-
-- validate the submitted profile fields
-- prevent invalid data from being saved
-```
-
-### Reusing the skill
-
-To use the skill in another repository, copy [skills/git-smart-commit/SKILL.md](skills/git-smart-commit/SKILL.md) into that repository's supported project-skills directory. The receiving AI assistant must support the directory format used by its tooling.
+- [Git Create Local Branch](skills/git-create-local-branch/README.md): Create a local branch from a selected source branch while checking remote refs and preserving working changes.
+- [Git Smart Commit](skills/git-smart-commit/README.md): Review changes and create a conventional commit after confirming the branch and staging choices.
 
 ## Tracer Bullet Strategy
 
